@@ -1,0 +1,24 @@
+@model Enrollment
+@{
+    ViewData["Title"] = "Nueva matrícula";
+}
+
+<h1>Nueva matrícula</h1>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="IdStudent" class="form-label">Estudiante</label>
+        <select asp-for="IdStudent" asp-items="ViewBag.IdStudent" class="form-select"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdCourse" class="form-label">Curso</label>
+        <select asp-for="IdCourse" asp-items="ViewBag.IdCourse" class="form-select"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Date" class="form-label">Fecha</label>
+        <input asp-for="Date" type="datetime-local" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a class="btn btn-secondary" asp-action="Index">Volver</a>
+</form>
